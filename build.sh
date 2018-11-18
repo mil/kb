@@ -1,15 +1,28 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 # to reset per jack #dfu-programmer atmega32u4 erase --force --debug 1000
 #dfu-programmer atmega32u4 flash planck_rev4_calvin.hex --debug 1000
 #dfu-programmer atmega32u4 reset --debug 1000
 
-
 cd "$(dirname "$0")"
 git submodule sync --recursive
-git submodule update --init --recursive
-
+git submodule update --depth 1 --init --recursive
 docker build -t qmkf .
-docker run -e MIDI_ENABLE=yes -e keymap=milhhkb -e subproject="" -e keyboard=hhkb --rm -v $(pwd):/qmk:rw qmkf
-#MIDI_ENABLE=yes keymap=milhhkb keyboard=hhkb make
-sudo dfu-programmer atmega32u4 erase
-sudo dfu-programmer atmega32u4 flash hhkb_milhhkb.hex
+
+echo "Building $1"
+
+if [ "$1" = "hhkb" ]; then
+  docker run -e MIDI_ENABLE=yes -e keymap=milhhkb -e subproject="" -e keyboard=hhkb --rm -v $(pwd):/qmk:rw qmkf
+  #MIDI_ENABLE=yes keymap=milhhkb keyboard=hhkb make
+  sudo dfu-programmer atmega32u4 erase
+  sudo dfu-programmer atmega32u4 flash hhkb_milhhkb.hex
+fi
+
+if [ "$1" = "iris" ]; then
+  docker run \
+    -e MIDI_ENABLE=yes \
+    -e keymap=miliris  \
+    --privileged  \
+    -v `pwd`:/qmk \
+    -v /dev:/dev \
+    qmk make iris/rev2:avrdude
+fi

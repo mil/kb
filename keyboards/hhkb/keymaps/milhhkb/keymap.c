@@ -7,7 +7,6 @@
 #define SECOND 1
 #define MIDI 2
 #define LPSWITCH 3
-#define MOUSE 4
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [BASE] = KEYMAP(  
@@ -20,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_I,    KC_O, KC_P,     KC_LBRC,  KC_RBRC,   KC_BSPC, 
 
       // Row 3
-      KC_ESC,  LT(SECOND,KC_A),  LT(MOUSE, KC_S),  LT(SECOND,KC_D),  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,     KC_L,
+      KC_ESC,  LT(SECOND,KC_A),  KC_S,  LT(SECOND,KC_D),  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,     KC_L,
       KC_SCLN,  KC_QUOT,  KC_ENT, 
 
       // Row 4
@@ -83,27 +82,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
       KC_TRNS, KC_TRNS
-  ),
-
-  [MOUSE] = KEYMAP(
-      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  
-      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
-      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
-      
-      KC_WH_D, KC_WH_U, 
-      
-      KC_TRNS, KC_TRNS,  KC_TRNS, 
-      // Buttons
-      KC_BTN1,  KC_BTN2,    
-      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
-      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
-
-      // Directional
-      KC_MS_L,KC_MS_D,KC_MS_U,KC_MS_R,
-
-      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,       
-      KC_TRNS,     KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS, KC_TRNS, 
-      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   )
 };
 
