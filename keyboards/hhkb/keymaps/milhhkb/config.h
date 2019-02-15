@@ -23,8 +23,6 @@
 //#define MOUSEKEY_MAX_SPEED      7
 //#define MOUSEKEY_WHEEL_DELAY 0
 //
-
-
 #undef MOUSEKEY_MOVE_MAX
 #define MOUSEKEY_MOVE_MAX       127
 #undef MOUSEKEY_WHEEL_MAX
