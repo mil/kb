@@ -30,7 +30,7 @@ fi
 if [ "$1" = "iris" ]; then
   docker run \
     -e MIDI_ENABLE=yes \
-    -e keymap=miliris  \
+    -e keymap=miliris_qwert  \
     --privileged  \
     -v `pwd`:/qmk \
     -v /dev:/dev \

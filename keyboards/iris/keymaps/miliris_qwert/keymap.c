@@ -40,8 +40,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC,
 
      KC_BSPC,
-     KC_Q, KC_W, KC_E, KC_R, KC_T,
-     KC_Y, KC_U, KC_I, KC_O, KC_P,
+     MT(MOD_LSFT, KC_Q), MT(MOD_LSFT, KC_W), MT(MOD_LSFT, KC_E), MT(MOD_LSFT, KC_R), MT(MOD_LSFT, KC_T),
+     MT(MOD_LSFT, KC_Y), MT(MOD_LSFT, KC_U), MT(MOD_LSFT, KC_I), MT(MOD_LSFT, KC_O), MT(MOD_LSFT, KC_P),
      KC_BSPC,
 
      KC_TAB,
@@ -56,8 +56,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_LCTL,
 
      /*KC_LALT*/ 
-     KC_ENT,  LSFT_T(KC_SPC), SH_MON, 
-     SH_MON,  RSFT_T(KC_SPC), KC_ENT
+     MT(MOD_LALT, KC_ENT),  OSM(MOD_LSFT), SH_T(KC_SPC), 
+     SH_T(KC_SPC),  OSM(MOD_LSFT), MT(MOD_LALT, KC_ENT)
   ),
 
   [SECOND] = LAYOUT(
@@ -78,10 +78,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
      KC_TRNS,
-     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+     KC_TRNS, KC_VOLD, KC_VOLU, KC_TRNS, KC_TRNS, 
      KC_TRNS,
      KC_TRNS, 
-     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, 
+     KC_TRNS, KC_VOLD, KC_VOLU, KC_TRNS, KC_TRNS, 
      KC_TRNS,
 
      KC_TRNS, KC_TRNS, KC_TRNS, 
