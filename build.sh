@@ -36,3 +36,13 @@ if [ "$1" = "iris" ]; then
     -v /dev:/dev \
     qmkf make iris/rev2:avrdude
 fi
+
+if [ "$1" = "atreus" ]; then
+  docker run \
+    -e MIDI_ENABLE=yes \
+    -e keymap=milatreus \
+    --privileged  \
+    -v `pwd`:/qmk \
+    -v /dev:/dev \
+    qmkf make atreus:milatreus:avrdude
+fi
