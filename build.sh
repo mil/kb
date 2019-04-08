@@ -6,25 +6,23 @@
 cd "$(dirname "$0")"
 git submodule sync --recursive
 git submodule update --depth 1 --init --recursive
-#docker build -t qmkf .
+docker build -t qmkf .
 
 echo "Building $1"
 
 if [ "$1" = "hhkb" ]; then
-  docker run -e MIDI_ENABLE=yes -e keymap=milhhkb -e subproject="" -e keyboard=hhkb --rm -v $(pwd):/qmk:rw qmkf
-  MIDI_ENABLE=yes keymap=milhhkb keyboard=hhkb make
-  sudo dfu-programmer atmega32u4 erase
-  sudo dfu-programmer atmega32u4 flash hhkb_milhhkb.hex
+  #docker run -e MIDI_ENABLE=yes -e keymap=milhhkb -e subproject="" -e keyboard=hhkb --rm -v $(pwd):/qmk:rw qmkf
+  #MIDI_ENABLE=yes keymap=milhhkb keyboard=hhkb make
+  #sudo dfu-programmer atmega32u4 erase
+  #sudo dfu-programmer atmega32u4 flash hhkb_milhhkb.hex
 
-  #docker run \
-  #  -e MIDI_ENABLE=yes \
-  #  -e keymap=milhhkb \
-  #  --privileged  \
-  #  -v `pwd`:/qmk \
-  #  -v /dev:/dev \
-  #  qmkf make hhkb:dfu
-
-
+  docker run \
+    -e MIDI_ENABLE=yes \
+    -e keymap=milhhkb \
+    --privileged  \
+    -v `pwd`:/qmk \
+    -v /dev:/dev \
+    qmkf make hhkb:dfu
 fi
 
 if [ "$1" = "iris" ]; then

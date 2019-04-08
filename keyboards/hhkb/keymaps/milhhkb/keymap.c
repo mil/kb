@@ -23,7 +23,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_I,    KC_O, KC_P,     KC_LBRC,  KC_RBRC,   KC_BSPC, 
 
       // Row 3
-      KC_ESC,  LT(SECOND,KC_A),  KC_S,  LT(SECOND,KC_D),  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,     KC_L,
+      MT(MOD_LCTL, KC_ESC),  LT(SECOND,KC_A),  KC_S,  LT(SECOND,KC_D),  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,     KC_L,
       KC_SCLN,  KC_QUOT,  KC_ENT, 
 
       // Row 4
@@ -31,7 +31,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_M,  KC_COMM,  KC_DOT,  KC_SLSH,  KC_RSFT,  MO(SECOND),
 
       // Row 5
-      KC_LCTL,  KC_LALT,  LT(SECOND, KC_SPC),      /*MO(SECOND)*/ KC_LALT,  KC_RCTL //TO(MIDI)
+      KC_LCTL,  KC_LALT,  LT(/*SECOND*/MIDI, KC_SPC),      /*MO(SECOND)*/ KC_LALT,  /*KC_RCTL*/ TO(MIDI)
   ),
 
   [SECOND] = LAYOUT(
